@@ -1,6 +1,10 @@
+Serviço ClusterIP:
 Para o acesso interno entre os pods, nós podemos acessar diretamente via IP adicionando a porta na qual está rodando o serviço dentro do pod:
     10.42.0.15:80
 Qual o problema? Como pods são efêmeros, esse IP no momento não é estável, caso o pod seja encerrado, muito provalvelmente o próximo pod terá um IP diferente. Para resolver isso, utilizamos o Service ClusterIP, que ao mapear uma label diretamente na criação do pod e adicioná-lo no serviço, o serviço irá direcionar as requisições diretamente para o pod sem precisar saber o IP.
 Como acessamos apartir desse serviço?
     Utilizando o IP do serviço juntamente com a sua porta configurada, nesse casO;
         10.43.242.177:9000 -> segundo-pod:80
+
+Serviço NodePort:
+Serve de maneira semelhante ao ClusterIP, mapeando o acesso para dentro de containers. A principal diferença é que o NodePort faz o bind para fora do cluster, deixando o pod acessível na máquina externa (nesse caso o localhost para acesso via navegador)

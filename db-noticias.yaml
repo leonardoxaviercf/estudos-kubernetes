@@ -10,3 +10,13 @@ spec:
       image: aluracursos/mysql-db:1
       ports:
         - containerPort: 3306
+      # Poderia ralizar a configuração de apenas uma variável de ambiente. Nesse caso, optamos por utilzar todas de uma vez
+      # env:
+      #   - name: MYSQL_ROOT_PASSWORD
+      #     valueFrom:
+      #       configMapKeyRef:
+      #         name: db-configmap
+      #         key: MYSQL_ROOT_PASSWORD
+      envFrom:
+        - configMapRef:
+            name: db-configmap

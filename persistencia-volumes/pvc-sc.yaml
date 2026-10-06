@@ -1,0 +1,12 @@
+# Exemplo de criaçao de PVC para o Google Cloud Plataform
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-2
+spec:
+  accesModes:
+    - ReadWriteOnce
+  resources:
+    request:
+      storage: 10Gi
+  storageClassName: slow

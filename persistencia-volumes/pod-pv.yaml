@@ -1,0 +1,16 @@
+# Exemplo de criaçao de Pod com PVC para o Google Cloud Plataform
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-pv
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+      volumeMounts:
+        - mountPath: /volume-dentro-do-container
+          name: primeiro-pv
+  volumes:
+    - name: primeiro-pv
+      PersistentVolumeClaim:
+        claimName: pvc-1

@@ -1,0 +1,13 @@
+# Exemplo de criaçao de PV para o Google Cloud Plataform
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-1
+spec:
+  capacity:
+    storage: 10Gi
+  accesModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: pv-disk
+  storageClassName: standard
